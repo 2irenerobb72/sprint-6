@@ -7,8 +7,8 @@
 
       <title>Tic Tac Toe!</title>
 
-      <script src=jspm_packages/system.js</script>
-      <script src="config.js"</script>
+      <script src="jspm_packages/system.js"></script>
+      <script src="config.js"></script>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
       <script>
         System.import('app/main.js')
@@ -19,9 +19,7 @@
           margin: 50px auto;
           width: 300px;
         }
-        .e,
-        .o,
-        .x {
+        .board > div {
           border: 1px solid #eee;
           float: left;
           font-size: 80px;
@@ -31,8 +29,8 @@
           text-align: center;
           width: 98px;
         }
-        .o { color: ForestGreen; }
-        .x { color: DarkRed; }
+        .player-o { color: ForestGreen; }
+        .player-x { color: DarkRed; }
 
         .row {
           text-align: center;
@@ -49,20 +47,22 @@
       <div class="container">
         <div id="board">
           <div class="board">
-            <div class="ttt-cell empty" data-index="0">&nbsp;</div>
-            <div class="ttt-cell empty" data-index="1">&nbsp;</div>
-            <div class="ttt-cell empty" data-index="2">&nbsp;</div>
-            <div class="ttt-cell empty" data-index="3">&nbsp;</div>
-            <div class="ttt-cell empty" data-index="4">&nbsp;</div>
-            <div class="ttt-cell empty" data-index="5">&nsbp;</div>
-            <div class="ttt-cell empty" data-index="6">&nsbp;</div>
-            <div class="ttt-cell empty" data-index="7">&nsbp;</div>
-            <div class="ttt-cell empty" data-index="8">&nsbp;</div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
           </div>
         </div>
       </div>
       <div class="row">
-        <button class="btn btn-success">Restart</butto>
+        <div id="restart">
+        <button class="btn btn-success">Restart</button>
+        </div>
       </div>
     </body>
 </html>
