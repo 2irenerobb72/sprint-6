@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"
+      <meta name="viewport" content="width+device-width, initial-scale=1">
+
+      <title>Tic Tac Toe!</title>
+
+      <script src=jspm_packages/system.js</script>
+      <script src="config.js"</script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <script>
+        System.import('app/main.js')
+      </script>
+      <style>
+        .board {
+          border: 1px solid #eee;
+          margin: 50px auto;
+          width: 300px;
+        }
+        .e,
+        .o,
+        .x {
+          border: 1px solid #eee;
+          float: left;
+          font-size: 80px;
+          font-weight: bold;
+          height: 98px;
+          line-height: 98px;
+          text-align: center;
+          width: 98px;
+        }
+        .o { color: ForestGreen; }
+        .x { color: DarkRed; }
+
+        .row {
+          text-align: center;
+        }
+
+        .button {
+          position: absolute;
+          top: 50%;
+        }
+      </style>
+    </head>
+
+    <body>
+      <div class="container">
+        <div id="board">
+          <div class="board">
+            <div class="ttt-cell empty" data-index="0">&nbsp;</div>
+            <div class="ttt-cell empty" data-index="1">&nbsp;</div>
+            <div class="ttt-cell empty" data-index="2">&nbsp;</div>
+            <div class="ttt-cell empty" data-index="3">&nbsp;</div>
+            <div class="ttt-cell empty" data-index="4">&nbsp;</div>
+            <div class="ttt-cell empty" data-index="5">&nsbp;</div>
+            <div class="ttt-cell empty" data-index="6">&nsbp;</div>
+            <div class="ttt-cell empty" data-index="7">&nsbp;</div>
+            <div class="ttt-cell empty" data-index="8">&nsbp;</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn btn-success">Restart</butto>
+      </div>
+    </body>
+</html>

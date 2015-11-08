@@ -1,0 +1,29 @@
+{
+  "name": "sprint-6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2irenerobb72/sprint-6.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2irenerobb72/sprint-6/issues"
+  },
+  "homepage": "https://github.com/2irenerobb72/sprint-6#readme",
+  "devDependencies": {
+    "jspm": "^0.16.14"
+  },
+  "jspm": {
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
+}
