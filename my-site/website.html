@@ -1,203 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"
+      <meta name="viewport" content="width+device-width, initial-scale=1">
 
-    <title>Impresso! Coffee &amp; Comestibles</title>
+      <title>Tic Tac Toe!</title>
 
-    <!-- This helps solve the "4 sites" problem by establishing this
-         URL as the "canonical" one, so all links point here -->
-    <link rel="canonical" href="http://impresso.co.nz">
+      <meta name="og:type" content="website">
+      <meta name="og:title" content="Tic Tac Toe!; my beautiful tic tac toe board">
 
-    <!-- This provides the base URL to be used for all relative links
-         on the page - be sure it is the same as the canonical form! -->
-    <base href="http://impresso.co.nz">
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@Patriots" />
+      <meta name="twitter:title" content="Patriots win over the whole world" />
+      <meta name="twitter:description" content="The patriots are now the best team on the world" />
+      <script src="jspm_packages/system.js"></script>
+      <script src="config.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <script>
+        System.import('app/main.js')
+      </script>
+      <style>
+        .board {
+          border: 1px solid #eee;
+          margin: 50px auto;
+          width: 300px;
+        }
+        .board > div {
+          border: 1px solid #eee;
+          float: left;
+          font-size: 80px;
+          font-weight: bold;
+          height: 98px;
+          line-height: 98px;
+          text-align: center;
+          width: 98px;
+        }
+        .player-o { color: ForestGreen; }
+        .player-x { color: DarkRed; }
+        .row {
+          text-align: center;
+        }
+        .button {
+          position: absolute;
+          top: 50%;
+        }
+      </style>
+    </head>
 
-    <meta name="description"
-      content="A real world, 4th wave, sustainable café located at 123 Stafford Street in Timaru.">
-
-    <!-- This is for Facebook, but is used by others, too.
-         For example, see https://developers.google.com/+/web/snippet/ -->
-    <meta name="og:type" content="website">
-    <meta name="og:title"
-      content="Impresso! Coffee &amp; Comestibles: 4th wave coffee in Timaru">
-    <meta name="og:image"
-      content="http://impresso.co.nz/img/espresso.jpg">
-    <meta name="og:url"
-      content="http://impresso.co.nz/">
-    <meta name="og:description"
-      content="Impresso! Coffee &amp; Comestibles is a real world, 4th wave, sustainable, community café located in the heart of Timaru in a lovely, historical building at 123 Stafford Street. We're open Monday to Friday from 5 to 9, weekends from 9 to 5.">
-    <meta name="fb:admins" content="1234567890">
-
-    <!-- This creates a Twitter card summary with a big image -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@impresso">
-    <meta name="twitter:creator" content="@nateisgreat">
-    <meta name="twitter:title" content="Impresso! Coffee &amp; Comestibles">
-    <meta name="twitter:image" content="http://impresso.co.nz/img/espresso.jpg">
-    <meta name="twitter:description"
-      content="Impresso! Coffee &amp; Comestibles is a real world, 4th wave, sustainable, community café located in the heart of Timaru in a lovely, historical building at 123 Stafford Street. We're open Monday to Friday from 5 to 9, weekends from 9 to 5.">
-
-    <!-- This works with Google's StructuredData -->
-    <!-- See https://developers.google.com/structured-data/customize/logos -->
-    <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
-        "@type": "Organization",
-        "url": "http://impresso.co.nz",
-        "logo": "http://impresso.co.nz/img/logo-lg.png"
-      }
-    </script>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/app.css">
-  </head>
-  <body>
-    <div class="container">
-      <header class="row page-header">
-        <aside class="col-md-3 col-sm-4">
-          <div class="branding">
-            <img class="logo" src="/img/logo-md.png" alt="Impresso! Coffee &amp; Comestibles">
+    <body>
+      <div class="container">
+        <div id="board">
+          <div class="board">
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
           </div>
-        </aside>
-        <div class="col-md-9 col-sm-8">
-          <nav class="pull-right global-nav">
-            <a href="/menus/">Menus</a>
-            <a href="/events/">Events</a>
-            <a href="/location/">Location</a>
-            <a href="/contact/">Contact</a>
-          </nav>
         </div>
-      </header>
-      <main class="row">
-        <aside class="col-md-3 col-sm-4">
-          <section class="cafe-status">
-            <div class="status">We're <strong class="open-sign">OPEN</strong> now</div>
-            <div class="until">The café closes in 3 hours 27 minutes</div>
-          </section>
-          <section class="pending-events">
-            <article class="event">
-              <header>
-                <div class="dateline">
-                  Thursday, 17 December, 5-9 <span class="day-part">pm</span>
-                </div>
-                <h2>Kool Jazz</h2>
-              </header>
-              <div>
-                Sed porttitor lectus nibh. Curabitur arcu erat, accumsan id
-                imperdiet et, porttitor at sem. Mauris blandit aliquet elit,
-                eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet
-                quam vehicula elementum sed sit amet dui. Pellentesque in ipsum
-                id orci porta dapibus.
-              </div>
-            </article>
-            <article class="event">
-              <header>
-                <div class="dateline">
-                  Friday, 25 December, 1-4 <span class="day-part">pm</span>
-                </div>
-                <h2>Scrooged!</h2>
-              </header>
-              <div>
-                Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor
-                sit amet, consectetur adipiscing elit. Vestibulum ac diam sit
-                amet quam vehicula elementum sed sit amet dui. Mauris blandit
-                aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor.
-              </div>
-            </article>
-          </section>
-        </aside>
-        <div class="col-md-9 col-sm-8">
-          <section class="row">
-            <nav class="col-xs-12 breadcrumb-trail">
-              &nbsp;
-            </nav>
-          </section>
-          <section class="row">
-            <article class="col-xs-12">
-              <img class="espresso" width="240" src="/img/espresso.jpg">
-              <header>
-                <h1>We make great coffee</h1>
-              </header>
-              <p>
-                Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
-                Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet
-                quam id dui posuere blandit. Pellentesque in ipsum id orci porta
-                dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Proin eget tortor risus. Vivamus magna justo, lacinia eget
-                consectetur sed, convallis at tellus. Vestibulum ac diam sit amet
-                quam vehicula elementum sed sit amet dui. Proin eget tortor risus.
-                Nulla quis lorem ut libero malesuada feugiat.
-              </p>
-              <p>
-                Praesent sapien massa, convallis a pellentesque nec, egestas non
-                nisi. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-                Curabitur aliquet quam id dui posuere blandit. Vivamus magna justo,
-                lacinia eget consectetur sed, convallis at tellus. Vivamus magna
-                justo, lacinia eget consectetur sed, convallis at tellus.
-                Pellentesque in ipsum id orci porta dapibus. Sed porttitor lectus
-                nibh. Nulla quis lorem ut libero malesuada feugiat. Nulla porttitor
-                accumsan tincidunt. Pellentesque in ipsum id orci porta dapibus.
-              </p>
-              <p>
-                Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-                Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium
-                ut lacinia in, elementum id enim. Curabitur non nulla sit amet
-                nisl tempus convallis quis ac lectus. Praesent sapien massa,
-                convallis a pellentesque nec, egestas non nisi. Donec sollicitudin
-                molestie malesuada. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit.
-              </p>
-            </article>
-          </section>
-          <footer class="row">
-            <section class="col-sm-4">
-              <header>
-                <h2 class="location-header">Location &amp; hours</h2>
-              </header>
-              <p class="map">
-                <img src="/img/map.png" width="192" height="144" alt="123 Stafford Street, Timaru Center">
-              </p>
-            </section>
-            <section class="col-sm-4">
-              <header>
-                <h2 class="location-header">Find us at</h2>
-              </header>
-              <p class="location">
-                123 Stafford Street<br>
-                Timaru Center
-              </p>
-              <header>
-                <h2 class="location-header">Hours</h2>
-              </header>
-              <p class="location">
-                Mon-Fri ~ 5 <span class="day-part">am</span> to 9 <span class="day-part">pm</span><br>
-                Sat-Sun ~ 9 <span class="day-part">am</span> to 5 <span class="day-part">pm</span>
-              </p>
-            </section>
-            <section class="col-sm-4">
-              <header>
-                <h2 class="contact-header">Contact Info</h2>
-              </header>
-              <p class="contact-info pull-right" style="clear:both">
-                phone 123.456.7890<br>
-                fax 456.789.0123<br>
-                emergencies 789.012.3456
-              </p>
-              <nav class="persistent-nav pull-right" style="clear:both">
-                <a href="/privacy/">Privacy</a>
-                <a href="/terms/">Terms</a>
-              </nav>
-            </section>
-          </footer>
+      </div>
+      <div class="row">
+        <div id="restart">
+        <button class="btn btn-success">Restart</button>
         </div>
-      </main>
-    </div>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="/js/app.js"></script>
-  </body>
+      </div>
+    </body>
 </html>
